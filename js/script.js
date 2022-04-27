@@ -9,31 +9,53 @@ Consigli del giorno:
 * Individuate gli elementi di cui avete bisogno per realizzare il programma.
 */
 
-// Creare un array di 5 numeri casuali
+// Creare un array di 5 numeri casuali unici
 const rndArray = rndNumberGenerator(5, 50);
 // Imposto il tempo del timer (in secondi)
-const timeSec = 5;
+const timeSec = 3;
 // Creo l'array vuoto dei numeri dell'utente
 const userArray = [];
 
-// Avviare il timer di 30sec
-document.getElementById("start-btn").addEventListener("click",
+// Estraggo i bottoni con l'id e li affido ad una variabile per comodità
+const startBtn = document.getElementById("start-btn");
+const restartBtn = document.getElementById("restart-btn");
+
+// Avviare il timer di "timeSec" secondi
+startBtn.addEventListener("click",
     function () {
+        // Tolgo la possibilità di premere ulteriormente il bottone
+        startBtn.style.pointerEvents = "none";
 
         // Stampare in pagina il contenuto dell'array
-        const textString = document.getElementById("simon");
-        textString.innerHTML = rndArray;
+        const numString = document.getElementById("simon");
+        numString.innerHTML = rndArray;
 
-        const timer = setTimeout(() => {
-            userArray = prompt("Inserisci i numeri visualizzati nel loro ordine")
-            console.log(userArray);
-        }, (timeSec) * 1000);
+        // Avviare il timer e al suo termine, chiedere all'utente di inserire i numeri visti, uno alla volta tramite prompt, ed inseririli dentro "userArray"
+        const timer = setTimeout(timerFunction, (timeSec) * 1000);
+        function timerFunction() {
+            //numString.classList.add("hidden"); // I numeri scompagliono solo dopo l'inserimento dei 5 nume *ticket*
+            for (let i = 1; i <= 5; i++) {
+                let digitNum = parseInt(prompt(`${"Inserisci il numero"} ${i} ${"visualizzato:"}`));
+                userArray.push(digitNum);
+                console.log(userArray);
+                console.log(rndArray);
+            }
+        }
+            
     });
-    
-// Al termine del timer, chiedere all'utente di inserire i numeri visti, tramite prompt, ed inseririli in un array
 
 // Fare un ciclo che analizza i numeri interni all'array random e quelli interni all'array dell'utente, confrontandoli e segnalando se elemRndArray === elemUserArray, dicendo n. e oggetto di quelli ===
 
+//function similaritiesExaminator(rndArray, userArray)
+
+
+//Restart button
+restartBtn.addEventListener("click",
+    function () {
+
+        startBtn.style.pointerEvents = "initial";
+        //svuota ogni array
+    });
 
 // FUNCTIONS
 /*
@@ -65,4 +87,20 @@ Descrizione: Genera numeri casuali
 */
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+
+/*
+Descrizione: controlla che se il contenuto di un'array sia presente anche in un secondo array
+    Dato 1: Array 1 → "firstArray"
+    Dato 2: Array 2 → "secondArray"
+    Return: bo
+*/
+
+function similaritiesExaminator(firstArray, secondArray) {
+    for (let i = 0; i < firstArray.length; i++) {
+        if (firstArray[i] === secondArray[i]) {
+            
+        }
+        
+    }
 }
