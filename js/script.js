@@ -13,13 +13,12 @@ const maxGuessNumber = 5;
 // Creare un array di 5 numeri casuali unici
 let rndArray = rndNumberGenerator(maxGuessNumber, 100);
 // Imposto il tempo del timer (in secondi)
-const timeSec = 3;
+const timeSec = 30;
 // Creo l'array vuoto dei numeri dell'utente
 let userArray = [];
 
 // Estraggo i bottoni con l'id e li affido ad una variabile per comodità
 const startBtn = document.getElementById("start-btn");
-const restartBtn = document.getElementById("restart-btn");
 
 // Avviare il timer di "timeSec" secondi
 startBtn.addEventListener("click",
@@ -37,6 +36,7 @@ startBtn.addEventListener("click",
 
         function timerHiddenFunction() {
             numString.classList.add("hidden");
+            clearTimeout(timerHidden)
         }
 
         function timerFunction() {
@@ -46,32 +46,21 @@ startBtn.addEventListener("click",
                 console.log(userArray);
                 console.log(rndArray);
             }
+            clearTimeout(timer)
             
             // Fare un ciclo che analizza i numeri interni all'array random e quelli interni all'array dell'utente, confrontandoli e segnalando se elemRndArray === elemUserArray, dicendo n. e oggetto di quelli ambi presenti
             let result = similaritiesExaminator(rndArray, userArray);
             console.log("I numeri simili sono:", result);
+            const resultInfoString = document.getElementById("simonInfoResult");
+            resultInfoString.innerHTML = "I numeri il cui valore e la cui posizione sono state indovinate sono:";
             const resultString = document.getElementById("simonResult");
-            resultString.innerHTML = `${"I numeri il cui valore e la cui posizione sono state indovinate sono:"} ${result}`;
+            resultString.innerHTML = result;
             const subResultString = document.getElementById("simonResultSub");
-            subResultString.innerHTML = `${"ovvero"} ${result.length} ${"su"} ${maxGuessNumber}`;
+            subResultString.innerHTML = `${result.length} ${"su"} ${maxGuessNumber}`;
         }
             
     }
 );
-
-// Restart button
-restartBtn.addEventListener("click",
-    function () {
-
-        startBtn.style.pointerEvents = "initial";
-        userArray = [];
-        rndArray = [];
-        
-
-    }
-);
-
-
 
 // FUNCTIONS
 /*
@@ -106,7 +95,7 @@ function getRndInteger(min, max) {
 }
 
 /*
-Descrizione: controlla che se il contenuto di un'array sia presente anche in un secondo array
+Descrizione: controlla se il contenuto di un'array sia presente anche in un secondo array
     Dato 1: Array 1 → "firstArray"
     Dato 2: Array 2 → "secondArray"
     Return: Array dei numeri uguali nella stessa posizione
