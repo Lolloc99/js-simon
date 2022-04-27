@@ -57,6 +57,16 @@ h1 {
     cursor: pointer;
 }
 
+#simonResult{
+    font-size: 2rem;
+    margin: 5rem;
+    color: gold;
+}
+
+#simonResultSub{
+    color: gold;
+}
+
 #simon {
     font-size: 5rem;
     margin: 5rem;
