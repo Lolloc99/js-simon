@@ -5,3 +5,56 @@
     box-sizing: border-box;
 }
 
+/* COMMON */
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: beige;
+    background-image: url(../img/Background-Pattern.png);
+    background-repeat: cover;
+}
+
+h1 {
+    color: white;
+}
+
+.container {
+    width: 1000px;
+    height: 500px;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: rebeccapurple;
+    text-align: center;
+    border-radius: 10px;
+}
+
+#start-string {
+    margin-bottom: 2rem;
+}
+
+#btn-container {
+    display: flex;
+    justify-content: space-between;
+    width: 35%;
+}
+
+#restart-btn,
+#start-btn {
+    font-size: 2rem;
+    width: 8rem;
+    background-color: green;
+    color: white;
+    border: 1px dashed white;
+    cursor: pointer;
+}
+
+#simon {
+    font-size: 5rem;
+    margin: 5rem;
+    color: gold;
+}
