@@ -13,7 +13,7 @@ const maxGuessNumber = 5;
 // Creare un array di 5 numeri casuali unici
 let rndArray = rndNumberGenerator(maxGuessNumber, 100);
 // Imposto il tempo del timer (in secondi)
-const timeSec = 30;
+const timeSec = 5;
 // Creo l'array vuoto dei numeri dell'utente
 let userArray = [];
 
@@ -101,12 +101,19 @@ Descrizione: controlla se il contenuto di un'array sia presente anche in un seco
     Return: Array dei numeri uguali nella stessa posizione
 */
 function similaritiesExaminator(firstArray, secondArray) {
-    const SimiliarNumberArray = [];
+    const similiarNumberArray = [];
+    
     for (let i = 0; i < firstArray.length; i++) {
+        /* questo if richiede che sia corretta anche la posizione del numero
         if (firstArray[i] === secondArray[i]) {
-            SimiliarNumberArray.push(secondArray[i])
+            similiarNumberArray.push(secondArray[i])
         }
+        */
+       const currentElement = firstArray[i];
+       if (secondArray.includes(currentElement)) {
+           similiarNumberArray.push(currentElement);
+       }
     }
 
-    return SimiliarNumberArray
+    return similiarNumberArray
 }
