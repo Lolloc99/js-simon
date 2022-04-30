@@ -1,0 +1,49 @@
+/* RESET */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* COMMON */
+body {
+    background-color: beige;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.game-sec {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    height: 35%;
+    width: 40%;
+    background-color: white;
+    border: 3px solid black;
+}
+
+/* UNIVERSAL TAG */
+
+.m-top {
+    margin-top: 1rem;
+}
+
+/* BUTTONS */
+#startBtn,
+#clickBtn {
+    font-size: 2rem;
+    width: 10rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: green;
+}
+
+.hide {
+    display: none;
+}

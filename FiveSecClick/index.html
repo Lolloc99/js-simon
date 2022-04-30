@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How many click you can do in 5 sec?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="game-sec">
+            <h1>Quanti click riesci a fare in 5 secondi?</h1>
+            <p class="m-top">(Il primo click avvia la partita)</p>
+            <h2 id="clickCounter" class="m-top">Waiting for the start...</h2>
+            <div id="buttons">
+                <input type="button" value="Inizia!" id="startBtn">
+                <input type="button" value="CLICCA!" id="clickBtn" class="hide">
+            </div>
+            <h2 id="timeOver" class="hide m-top">Tempo scaduto!</h2>
+            <p id="clickPerSec" class="m-top"></p>
+        </div>
+    </div>
+    <script src="script.js" type="text/javascript"></script>
+</body>
+</html>
